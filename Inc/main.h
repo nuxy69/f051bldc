@@ -39,39 +39,36 @@ extern "C" {
 #include "stm32f0xx_ll_pwr.h"
 #include "stm32f0xx_ll_dma.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
-
-/* USER CODE END ET */
-
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
-
-/* USER CODE END EC */
-
-/* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
-
-/* USER CODE END EM */
+#include "eeprom.h"
+#include "settings.h"
+#include "system/system.h"
+#include "system/init.h"
+#include "system/adc.h"
+#include "motor/motor.h"
+#include "input/input_dshot.h"
+#include "input/input_multishot.h"
+#include "input/input_oneshot.h"
+#include "input/input_proshot.h"
+#include "input/input_pwm.h"
 
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+long map(long x, long in_min, long in_max, long out_min, long out_max);
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
-/* USER CODE BEGIN EFP */
-
-/* USER CODE END EFP */
-
-/* Private defines -----------------------------------------------------------*/
-/* USER CODE BEGIN Private defines */
-
-/* USER CODE END Private defines */
+extern int newinput;
+extern int count;
+extern int error;
+extern int e_com_time;
+extern int input;
+extern int running;
+extern int commandcount;
+extern int tocheck;
+extern int duty_cycle;
+extern int filter_delay;
+extern char filter_level;
+extern char polling_mode;
 
 #ifdef __cplusplus
 }
